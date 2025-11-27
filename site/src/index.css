@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg-1: #0f172a; /* slate-900 */
+  --bg-2: #6d28d9; /* indigo-600 */
+  --muted: #6b7280; /* gray-500 */
+  --glass: rgba(255,255,255,0.06);
+  --glass-strong: rgba(255,255,255,0.85);
+}
+
+html, body, #root {
+  height: 100%;
+}
+:root{
+  --bg-1: #05060a; /* near black */
+  --bg-2: #0b0720; /* deep indigo */
+  --accent: #8b5cf6; /* purple */
+  --accent-2: #6d28d9;
+  --muted: #9ca3af;
+  --text: #e6eef8;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+/* global typography */
+body{
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  color: var(--text);
+  background: transparent;
+}
+
+/* darker app background with purple accents */
+.app-bg{
+  position: relative;
+  z-index: 0;
+  background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  min-height: 100vh;
+}
+
+/* large decorative glows */
+.app-bg::before,
+.app-bg::after{
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(100px);
+  opacity: 0.85;
+}
+
+.app-bg::before{
+  /* top-right glow */
+  right: -10%;
+  top: -10%;
+  width: 60vw;
+  height: 60vh;
+  background: radial-gradient(closest-side at 70% 20%, rgba(139,92,246,0.95), rgba(124,58,237,0.6) 35%, rgba(99,102,241,0.08) 65%, transparent 80%);
+}
+
+.app-bg::after{
+  /* bottom glow */
+  left: -5%;
+  bottom: -20%;
+  width: 80vw;
+  height: 50vh;
+  background: radial-gradient(closest-side at 30% 80%, rgba(124,58,237,0.85), rgba(99,102,241,0.18) 40%, transparent 70%);
+}
+
+/* ensure content stacks above the glows */
+.app-container{ position: relative; z-index: 2; }
+
+/* glass card for panels - darker glass */
+.glass-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+/* subtle header style */
+.app-header h1{
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.app-subtitle{
+  color: var(--muted);
+}
+
+/* tab buttons */
+.tab-btn{
+  display:flex;
+  align-items:center;
+  gap:0.4rem;
+  padding:0.35rem 1rem;
+  border-radius:9999px;
+  font-weight:600;
+  font-size:0.8rem;
+  transition: color 0.3s ease;
+  background: transparent;
+  color: #fff;
+  border: none;
+  position: relative;
+  z-index: 2;
+}
+
+.tab-btn:hover{ transform: translateY(-1px); }
+.tab-btn-active{
+  color: #000;
+}
+
+.tab-btn-active span{
+  filter: invert(1) brightness(0.9);
+}
+
+/* tab container with moving pill */
+.tabs-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  position: relative;
+  background: rgba(255,255,255,0.08);
+  padding: 0.35rem;
+  border-radius: 9999px;
+  width: fit-content;
+  margin: 0 auto;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.tabs-pill{
+  position: absolute;
+  background: #fff;
+  border-radius: 9999px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  height: calc(100% - 0.7rem);
+  top: 0.35rem;
+}
+
+/* team card */
+.team-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.avatar{
+  width: 72px;
+  height: 72px;
+  border-radius: 9999px;
+  overflow: hidden;
+  flex-shrink:0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+}
+.avatar img{ width:100%; height:100%; object-fit:cover; }
+
+/* responsive video container */
+.media-wrap{ border-radius: 0.6rem; overflow:hidden; background: #000; display:flex; align-items:center; justify-content:center; }
+.media-wrap video{ width:100%; height:100%; display:block; }
+
+/* page container tweaks */
+.app-container{ max-width: 72rem; margin-left:auto; margin-right:auto; padding:3rem; }
+
+/* helper for iframes */
+.report-iframe{ width:100%; height:70vh; border:0; }
+
+/* fallback placeholder gradient */
+.team-placeholder{ background: linear-gradient(135deg,#0f172a,#1e0b33); }
+
+/* headings accent */
+h2{ color: #dfe7ff; }
+
+/* increase paragraph spacing and readability */
+p{ line-height:1.6; }
+
+/* emphasis text styling */
+.text-emphasis{
+  color: #a78bfa;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 600;
+}
