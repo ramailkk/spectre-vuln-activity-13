@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Attack Analysis - Research Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+            margin: 20px 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .placeholder {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 60px;
+            text-align: center;
+            border-radius: 10px;
+            border: 2px dashed #667eea;
+            margin: 20px 0;
+        }
+
+        .placeholder-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 10px 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .member-name {
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .member-contribution {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔒 Security Attack Analysis</h1>
+            <p class="subtitle">Academic Tutorial & Demonstration</p>
+            <div>
+                <span class="tag">Cybersecurity Research</span>
+                <span class="tag">Educational Project</span>
+                <span class="tag">2024</span>
+            </div>
+        </header>
+
+        <!-- Executive Summary -->
+        <section class="section" id="summary">
+            <h2>📋 Executive Summary</h2>
+            <div class="placeholder">
+                <div class="placeholder-icon">📄</div>
+                <h3>Non-Technical Summary</h3>
+                <p><em>Replace this section with your brief, non-technical summary suitable for a general audience. Explain the attack in simple terms, its potential impact, and why it matters.</em></p>
+            </div>
+            <p><strong>Example structure:</strong></p>
+            <p>This research examines [Attack Name], a security vulnerability that affects [Target Systems]. In simple terms, this attack allows an unauthorized person to [Brief Description]. This is concerning because [Impact on Users/Organizations]. Our research demonstrates how this attack works and provides recommendations for protection.</p>
+        </section>
+
+        <!-- Attack Simulation Video -->
+        <section class="section" id="video">
+            <h2>🎥 Attack Simulation Video</h2>
+            <p>Watch our detailed demonstration of the attack methodology and its real-world implications:</p>
+            
+            <div class="placeholder">
+                <div class="placeholder-icon">🎬</div>
+                <h3>Video Placeholder</h3>
+                <p><em>Embed your video here using YouTube, Vimeo, or direct video file.</em></p>
+                <p><strong>To embed a YouTube video:</strong> Replace the src URL below with your video URL</p>
+            </div>
+
+            <!-- Uncomment and replace VIDEO_ID with your actual video ID -->
+            <!--
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+            -->
+
+            <p style="margin-top: 20px;"><strong>Video Contents:</strong></p>
+            <ul style="margin-left: 20px;">
+                <li>Introduction to the vulnerability</li>
+                <li>Step-by-step attack demonstration</li>
+                <li>Impact analysis</li>
+                <li>Mitigation strategies</li>
+            </ul>
+        </section>
+
+        <!-- Academic Report -->
+        <section class="section" id="report">
+            <h2>📚 Academic Tutorial Report</h2>
+            <p>Our comprehensive technical analysis provides an in-depth examination of the attack vectors, methodologies, and defensive measures.</p>
+            
+            <div class="placeholder">
+                <div class="placeholder-icon">📖</div>
+                <h3>Full Report</h3>
+                <p><em>Link to or embed your PDF report here.</em></p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <!-- Replace report.pdf with your actual report filename -->
+                <a href="report.pdf" class="btn" target="_blank">📥 Download Full Report (PDF)</a>
+                <a href="report.pdf" class="btn" target="_blank">📖 View Report Online</a>
+            </div>
+
+            <!-- Optional: Embed PDF viewer -->
+            <!--
+            <div style="margin-top: 30px;">
+                <iframe src="report.pdf" width="100%" height="800px" style="border: none; border-radius: 10px;"></iframe>
+            </div>
+            -->
+
+            <h3>Report Sections:</h3>
+            <ul style="margin-left: 20px;">
+                <li><strong>Abstract:</strong> Overview of research objectives and findings</li>
+                <li><strong>Introduction:</strong> Background and context</li>
+                <li><strong>Methodology:</strong> Technical approach and tools used</li>
+                <li><strong>Attack Analysis:</strong> Detailed breakdown of the attack</li>
+                <li><strong>Results:</strong> Findings and observations</li>
+                <li><strong>Mitigation:</strong> Defense strategies and recommendations</li>
+                <li><strong>Conclusion:</strong> Summary and future work</li>
+                <li><strong>References:</strong> Academic sources and citations</li>
+            </ul>
+        </section>
+
+        <!-- Team Information -->
+        <section class="section" id="team">
+            <h2>👥 Research Team</h2>
+            <p>This project was completed as part of our cybersecurity coursework by the following team members:</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-name">Team Member 1</div>
+                    <div class="member-contribution">
+                        <strong>Contribution:</strong> Research & Documentation<br>
+                        <em>Responsible for literature review and report writing</em>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-name">Team Member 2</div>
+                    <div class="member-contribution">
+                        <strong>Contribution:</strong> Technical Implementation<br>
+                        <em>Developed attack simulation and testing environment</em>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-name">Team Member 3</div>
+                    <div class="member-contribution">
+                        <strong>Contribution:</strong> Video Production<br>
+                        <em>Created and edited demonstration video</em>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-name">Team Member 4</div>
+                    <div class="member-contribution">
+                        <strong>Contribution:</strong> Analysis & Mitigation<br>
+                        <em>Researched defense strategies and countermeasures</em>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: #f5f7fa; border-radius: 10px;">
+                <h3>Contribution Breakdown</h3>
+                <p><em>Replace with your team's actual contribution breakdown:</em></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Research & Literature Review: 25%</li>
+                    <li>Technical Implementation: 30%</li>
+                    <li>Documentation & Report: 25%</li>
+                    <li>Video Production: 20%</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Additional Information -->
+        <section class="section" id="info">
+            <h2>ℹ️ Additional Information</h2>
+            
+            <h3>Ethical Considerations</h3>
+            <p>This research was conducted in a controlled environment for educational purposes only. All testing was performed on isolated systems with proper authorization. This work is intended to educate about security vulnerabilities and promote better defensive practices.</p>
+
+            <h3>Disclaimer</h3>
+            <p>The information presented here is for academic and educational purposes only. Unauthorized access to computer systems is illegal. The authors and institution assume no liability for misuse of this information.</p>
+
+            <h3>Contact</h3>
+            <p>For questions about this research, please contact: <strong>[your-email@institution.edu]</strong></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Security Research Team | Academic Project</p>
+            <p>Last Updated: November 2024</p>
+        </footer>
+    </div>
+</body>
+</html>
