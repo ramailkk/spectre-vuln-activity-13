@@ -73,7 +73,7 @@ function Overview() {
         <div className="flex items-center justify-center">
           <div className="media-wrap w-full">
             {!Error ? (
-              <
+              <video
                 controls
                 playsInline
                 preload="metadata"
@@ -121,7 +121,7 @@ function Report() {
 }
 
 function Team() {
-  
+
   const members = [
     { name: 'Rohan Riaz', role: 'Research & Documentation', img: '/images/rohan.jpg' },
     { name: 'Ramail Khan', role: 'Technical Implementation', img: '/images/ramail.jpg' }

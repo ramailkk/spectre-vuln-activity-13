@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -197,6 +198,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -210,9 +212,13 @@
 
         <!-- Executive Summary -->
         <section class="section" id="summary">
-            <p>Spectre V1 is a flaw in modern processors that comes from the way they speed things up by guessing what will happen next. Sometimes these guesses briefly touch information they shouldn’t, and small traces of that information can be measured and reconstructed in a controlled experiment.</p>
+            <p>Spectre V1 is a flaw in modern processors that comes from the way they speed things up by guessing what
+                will happen next. Sometimes these guesses briefly touch information they shouldn’t, and small traces of
+                that information can be measured and reconstructed in a controlled experiment.</p>
 
-            <p>Our project explains how this happens and demonstrates it safely, showing how a performance feature can accidentally create a security risk. It highlights why improving processor design is important for keeping future systems secure.</p>
+            <p>Our project explains how this happens and demonstrates it safely, showing how a performance feature can
+                accidentally create a security risk. It highlights why improving processor design is important for
+                keeping future systems secure.</p>
         </section>
 
         <!-- Attack Simulation Video -->
@@ -222,9 +228,14 @@
 
             <!-- Uncomment and replace VIDEO_ID with your actual video ID -->
             <div class="video-container">
-                <video controls style="width: 100%; height: 100%; object-fit: contain;">
+                <!-- <video controls style="width: 100%; height: 100%; object-fit: contain;">
                     <source src="https://ramailkk.github.io/spectre-vuln-activity-13/vid.mp4" type="video/mp4">
                     Your browser does not support the video tag.
+                </video> -->
+
+                <video controls="" width="800" height="450" muted="" loop="" autoplay="">
+                    <source src="https://ramailkk.github.io/spectre-vuln-activity-13/vid.mp4"
+                        type="video/mp4">
                 </video>
             </div>
 
@@ -233,7 +244,8 @@
         <!-- Academic Report -->
         <section class="section" id="report">
             <h2>Academic Tutorial Report</h2>
-            <p>Our comprehensive technical analysis provides an in-depth examination of the attack vectors, methodologies, and defensive measures.</p>
+            <p>Our comprehensive technical analysis provides an in-depth examination of the attack vectors,
+                methodologies, and defensive measures.</p>
 
             <div style="text-align: center; margin-top: 30px;">
                 <!-- Replace report.pdf with your actual report filename -->
@@ -243,7 +255,8 @@
 
             <!-- Optional: Embed PDF viewer -->
             <div style="margin-top: 30px;">
-                <iframe src="report.pdf" width="100%" height="800px" style="border: none; border-radius: 10px;"></iframe>
+                <iframe src="report.pdf" width="100%" height="800px"
+                    style="border: none; border-radius: 10px;"></iframe>
             </div>
 
             <!-- Report sections removed as requested -->
@@ -281,4 +294,5 @@
         </footer>
     </div>
 </body>
+
 </html>
