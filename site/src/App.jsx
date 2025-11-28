@@ -65,15 +65,15 @@ export default function App() {
 }
 
 function Overview() {
-  const [videoError, setVideoError] = useState(false)
+  const [Error, setError] = useState(false)
 
   return (
     <section className="glass-card">
       <div className="grid md:grid-cols-2 gap-8">
         <div className="flex items-center justify-center">
           <div className="media-wrap w-full">
-            {!videoError ? (
-              <video
+            {!Error ? (
+              <
                 controls
                 playsInline
                 preload="metadata"
@@ -81,7 +81,7 @@ function Overview() {
                 className="w-full h-full object-contain"
                 poster="/images/video-poster.jpg"
               >
-                <source src="/vid.mp4" type="video/mp4" />
+                <source src="../../vid.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             ) : (
@@ -121,6 +121,7 @@ function Report() {
 }
 
 function Team() {
+  
   const members = [
     { name: 'Rohan Riaz', role: 'Research & Documentation', img: '/images/rohan.jpg' },
     { name: 'Ramail Khan', role: 'Technical Implementation', img: '/images/ramail.jpg' }
